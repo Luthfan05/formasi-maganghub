@@ -53,7 +53,7 @@ data = ambil_data(max_pages=1900, limit=20)
 
 if data:
     df = pd.DataFrame(data)
-    df.to_csv("/content/posisi.csv", index=False, encoding="utf-8-sig")
+    df.to_csv("/posisi.csv", index=False, encoding="utf-8-sig")
     print(f"Data disimpan ke 'posisi.csv' ({len(df)} baris)")
 else:
     print("Tidak ada data ditemukan.")
