@@ -175,6 +175,24 @@ base_css = """
     font-weight:600;
     color:#111827;
 }
+:root{
+    --bg-main:#e5ebf3;
+    --bg-input:#ffffff;
+    --text-main:#111827;
+    --text-input:#111827;
+    --border-input:#d1d5db;
+}
+
+.stApp{
+    background:var(--bg-main);
+    color:var(--text-main);
+}
+
+.stTextInput input{
+    background:var(--bg-input) !important;
+    color:var(--text-input) !important;
+    border:1px solid var(--border-input) !important;
+}
 """
 st.markdown(f"<style>{base_css}</style>", unsafe_allow_html=True)
 
@@ -209,6 +227,13 @@ if st.session_state.dark_mode:
     }
     .metric-value{
         color:#f9fafb;
+    }
+    :root{
+    --bg-main:#0f172a;
+    --bg-input:#020617;
+    --text-main:#e5e7eb;
+    --text-input:#e5e7eb;
+    --border-input:#1f2937;
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
@@ -285,4 +310,3 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
-::contentReference[oaicite:0]{index=0}
