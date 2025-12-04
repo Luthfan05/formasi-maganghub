@@ -11,10 +11,6 @@ if "dark_mode" not in st.session_state:
 st.title("Cek Data Peserta Berdasarkan Email")
 st.markdown("Masukkan email peserta.")
 
-toggle_col, _ = st.columns([1, 4])
-with toggle_col:
-    st.toggle("Dark mode", key="dark_mode")
-
 df = pd.DataFrame()
 
 with st.container():
@@ -24,10 +20,12 @@ with st.container():
     with btn_left:
         search = st.button("Cari Data", type="primary")
     with btn_right:
-        st.markdown(
-            "<a href='/Filter_Jurusan' target='_self' class='link-btn'>Filter Jurusan</a>",
-            unsafe_allow_html=True,
-        )
+        if st.button("Filter Jurusan"):
+            st.switch_page("pages/2_Filter_jurusan.py")
+
+toggle_col, _ = st.columns([1, 4])
+with toggle_col:
+    st.toggle("Dark mode", key="dark_mode")
 
 API_BASE = "https://maganghub.kemnaker.go.id/be/v1/api/list/crud-program-participants"
 headers = {
@@ -347,4 +345,5 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
