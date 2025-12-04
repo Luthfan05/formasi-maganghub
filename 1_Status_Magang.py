@@ -7,7 +7,13 @@ import streamlit as st
 st.set_page_config(page_title="Cek Data Peserta", layout="wide")
 
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = True
+    st.session_state.dark_mode = False
+
+left_title, right_toggle = st.columns([4, 1])
+with left_title:
+    st.title("Cek Data Peserta Berdasarkan Email")
+with right_toggle:
+    st.toggle("Dark mode", key="dark_mode")
 
 st.markdown("Masukkan email peserta.")
 
@@ -279,4 +285,4 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
-
+::contentReference[oaicite:0]{index=0}
