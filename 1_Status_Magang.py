@@ -4,6 +4,9 @@ import pandas as pd
 import requests
 import streamlit as st
 
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = True
+
 st.set_page_config(page_title="Cek Data Peserta", layout="wide")
 st.title("Cek Data Peserta Berdasarkan Email")
 
@@ -246,3 +249,4 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
