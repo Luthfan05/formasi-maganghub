@@ -25,24 +25,7 @@ with st.container():
         search = st.button("Cari Data", type="primary")
     with btn_right:
         st.markdown(
-            """
-            <a href="/Filter_Jurusan" target="_self"
-               style="
-                   display:inline-block;
-                   padding:0.45rem 1.1rem;
-                   border-radius:999px;
-                   border:1px solid #d1d5db;
-                   background:#ffffff;
-                   color:#2563eb;
-                   font-size:0.9rem;
-                   font-weight:600;
-                   text-decoration:none;
-                   text-align:center;
-                   box-shadow:0 1px 3px rgba(15,23,42,0.08);
-               ">
-               Filter Jurusan
-            </a>
-            """,
+            "<a href='/Filter_Jurusan' target='_self' class='link-btn'>Filter Jurusan</a>",
             unsafe_allow_html=True,
         )
 
@@ -340,6 +323,7 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
