@@ -8,7 +8,7 @@ st.set_page_config(page_title="Cek Data Peserta", layout="wide")
 if "dark_mode" not in st.session_state:
     st.session_state.dark_mode = True
 
-st.title("Cek Data Peserta Berdasarkan Email")
+st.subheader("Cek Data Peserta Berdasarkan Email")
 st.markdown("Masukkan email peserta.")
 
 df = pd.DataFrame()
@@ -21,7 +21,7 @@ with st.container():
         search = st.button("Cari Data", type="primary")
     with btn_right:
         if st.button("Filter Jurusan"):
-            st.switch_page("pages/2_Filter_jurusan.py")
+            st.switch_page("Filter_Jurusan")
 
 toggle_col, _ = st.columns([1, 4])
 with toggle_col:
@@ -345,5 +345,6 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
