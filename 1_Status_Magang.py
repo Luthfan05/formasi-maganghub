@@ -6,7 +6,7 @@ import streamlit as st
 st.set_page_config(page_title="Cek Data Peserta", layout="wide")
 
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = False
+    st.session_state.dark_mode = True
 
 st.title("Cek Data Peserta Berdasarkan Email")
 st.markdown("Masukkan email peserta.")
@@ -25,7 +25,7 @@ with st.container():
         search = st.button("Cari Data", type="primary")
     with btn_right:
         st.link_button(
-            "Ke Filter Jurusan",
+            "Filter Jurusan",
             "https://magang05.streamlit.app/Filter_Jurusan"
         )
 
@@ -323,6 +323,7 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
