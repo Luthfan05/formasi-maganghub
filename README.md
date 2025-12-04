@@ -59,12 +59,14 @@ Untuk menjaga performa:
 └─ README.md
 ```
 
-
 ## Framework dan Library
 - Streamlit
 - Pandas
 - Requests
 - Jinja2
+
+## Akses Aplikasi
+[Formasi MagangHub – Streamlit App](https://magang05.streamlit.app/)
 
 ## Catatan Penggunaan
 - Aplikasi ini tidak menyediakan akses administratif atau modifikasi data.
