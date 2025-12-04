@@ -7,7 +7,7 @@ import streamlit as st
 from jinja2 import Environment, FileSystemLoader
 
 st.set_page_config(layout="wide")
-BASE_DIR = Path(__file__).resolve().parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = Environment(
     loader=FileSystemLoader(BASE_DIR / "templates"),
@@ -245,3 +245,4 @@ if st.session_state.dark_mode:
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
+
