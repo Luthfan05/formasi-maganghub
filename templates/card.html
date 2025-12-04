@@ -1,0 +1,34 @@
+<a class="card-link" href="{{ link }}" target="_blank">
+    <div class="card">
+        <div class="corner-flag {{ corner_class }}"></div>
+        <div class="card-header">
+            <div class="avatar">{{ initials }}</div>
+            <div class="header-text">
+                <div class="card-title">{{ posisi }}</div>
+                <div class="card-company">{{ nama_perusahaan }}</div>
+                <div class="tag-row">
+                    <span class="tag-chip">{{ nama_kabupaten }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="card-spacer"></div>
+            <div class="stat-table">
+                <div class="stat-cell stat-header">Terdaftar</div>
+                <div class="stat-cell stat-header">Kuota</div>
+                <div class="stat-cell stat-header">Probabilitas</div>
+                <div class="stat-cell stat-value">{{ jumlah_terdaftar }}</div>
+                <div class="stat-cell stat-value">{{ jumlah_kuota }}</div>
+                <div class="stat-cell stat-value">{{ probabilitas }}</div>
+            </div>
+        </div>
+        <div class="card-footer">
+            <div class="meta-left">
+                <div class="dot"></div>
+                <span>Batas: {{ batas }}</span>
+            </div>
+            <div class="meta-badge">Detail ⟶</div>
+        </div>
+    </div>
+</a>
+
