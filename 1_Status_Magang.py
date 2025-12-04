@@ -24,9 +24,9 @@ with st.container():
     with btn_left:
         search = st.button("Cari Data", type="primary")
     with btn_right:
-        st.link_button(
-            "Filter Jurusan",
-            "https://magang05.streamlit.app/Filter_Jurusan"
+        st.page_link(
+            "pages/2_Filter_jurusan.py",
+            label="Filter Jurusan"
         )
 
 API_BASE = "https://maganghub.kemnaker.go.id/be/v1/api/list/crud-program-participants"
@@ -323,6 +323,7 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
