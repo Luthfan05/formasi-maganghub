@@ -23,8 +23,7 @@ st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 
 API_LIST_URL = "https://maganghub.kemnaker.go.id/be/v1/api/list/vacancies-aktif"
 
-df = pd.read_csv("posisi.csv")
-
+df = pd.read_csv(BASE_DIR / "data" / "posisi.csv")
 
 def hitung_prob(row):
     if row["jumlah_kuota"] == 0:
@@ -245,4 +244,5 @@ if st.session_state.dark_mode:
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
+
 
