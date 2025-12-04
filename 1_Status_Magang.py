@@ -4,11 +4,16 @@ import pandas as pd
 import requests
 import streamlit as st
 
-if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = True
-
 st.set_page_config(page_title="Cek Data Peserta", layout="wide")
-st.title("Cek Data Peserta Berdasarkan Email")
+
+if "dark_mode" not in st.session_state:
+    st.session_state.dark_mode = False
+
+left_title, right_toggle = st.columns([4, 1])
+with left_title:
+    st.title("Cek Data Peserta Berdasarkan Email")
+with right_toggle:
+    st.toggle("Dark mode", key="dark_mode")
 
 st.markdown("Masukkan email peserta.")
 
@@ -112,9 +117,7 @@ if search:
                 df["Tanggal Daftar"] = pd.to_datetime(df["Tanggal Daftar"])
                 df = df.sort_values(by="Tanggal Daftar", ascending=False)
 
-st.markdown(
-    """
-<style>
+base_css = """
 .stApp{
     background:#e5ebf3;
     color:#111827;
@@ -172,10 +175,43 @@ st.markdown(
     font-weight:600;
     color:#111827;
 }
-</style>
-""",
-    unsafe_allow_html=True,
-)
+"""
+st.markdown(f"<style>{base_css}</style>", unsafe_allow_html=True)
+
+if st.session_state.dark_mode:
+    dark_css = """
+    .stApp{
+        background:#0f172a;
+        color:#e5e7eb;
+    }
+    .stTextInput>div>div>input{
+        background:#020617;
+        color:#e5e7eb;
+        border:1px solid #1f2937;
+    }
+    .stCard{
+        background:#020617;
+        border-radius:12px;
+        box-shadow:0 4px 20px rgba(0,0,0,0.45);
+    }
+    .card-title{
+        color:#f9fafb;
+    }
+    .subtext{
+        color:#d1d5db;
+    }
+    .metric-box{
+        background:#111827;
+        border:1px solid #1f2937;
+    }
+    .metric-label{
+        color:#9ca3af;
+    }
+    .metric-value{
+        color:#f9fafb;
+    }
+    """
+    st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
 
 if not df.empty:
     st.markdown("<div class='result-grid'>", unsafe_allow_html=True)
@@ -249,4 +285,3 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
-
