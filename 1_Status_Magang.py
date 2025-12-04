@@ -119,8 +119,8 @@ if search:
 
 base_css = """
 .stApp{
-    background:#e5ebf3;
-    color:#111827;
+    background:var(--bg-main) !important;
+    color:var(--text-main) !important;
     font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
 .result-grid{
@@ -171,8 +171,7 @@ base_css = """
     font-size:0.95rem;
     font-weight:600;
     color:#111827;
-}
-:root{
+}:root{
     --bg-main:#e5ebf3;
     --bg-input:#ffffff;
     --text-main:#111827;
@@ -180,14 +179,22 @@ base_css = """
     --border-input:#d1d5db;
     --placeholder:#9ca3af;
 }
+html, body{
+    color-scheme: light;
+}
+.stTextInput label{
+    color:var(--text-main) !important;
+}
 .stTextInput input{
     background:var(--bg-input) !important;
     color:var(--text-input) !important;
     border:1px solid var(--border-input) !important;
 }
-
 .stTextInput input::placeholder{
     color:var(--placeholder) !important;
+}
+.stSwitch label{
+    color:var(--text-main) !important;
 }
 """
 st.markdown(f"<style>{base_css}</style>", unsafe_allow_html=True)
@@ -230,6 +237,10 @@ if st.session_state.dark_mode:
     --text-main:#e5e7eb;
     --text-input:#e5e7eb;
     --border-input:#1f2937;
+    --placeholder:#6b7280;
+    }
+    html, body{
+        color-scheme: dark;
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
@@ -306,4 +317,5 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
