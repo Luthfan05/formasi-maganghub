@@ -216,11 +216,12 @@ html, body{
     align-items:center;
     justify-content:center;
 }
-.stToggle label,
-.stToggle span{
-    color: var(--text-main) !important;
-    font-size: 0.95rem;
-    font-weight: 400;
+.stToggle div[data-baseweb="toggle"] label,
+.stToggle div[data-baseweb="toggle"] span{
+    color:var(--text-main) !important;
+    font-size:0.95rem;
+    font-weight:400;
+}
 """
 st.markdown(f"<style>{base_css}</style>", unsafe_allow_html=True)
 
@@ -346,3 +347,4 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
