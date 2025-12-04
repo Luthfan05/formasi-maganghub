@@ -1,5 +1,4 @@
 import math
-
 import pandas as pd
 import requests
 import streamlit as st
@@ -9,19 +8,26 @@ st.set_page_config(page_title="Cek Data Peserta", layout="wide")
 if "dark_mode" not in st.session_state:
     st.session_state.dark_mode = False
 
-left_title, right_toggle = st.columns([4, 1])
-with left_title:
-    st.title("Cek Data Peserta Berdasarkan Email")
-with right_toggle:
-    st.toggle("Dark mode", key="dark_mode")
-
+st.title("Cek Data Peserta Berdasarkan Email")
 st.markdown("Masukkan email peserta.")
+
+toggle_col, _ = st.columns([1, 4])
+with toggle_col:
+    st.toggle("Dark mode", key="dark_mode")
 
 df = pd.DataFrame()
 
 with st.container():
     email = st.text_input("Email", placeholder="nama@gmail.com")
-    search = st.button("Cari Data", type="primary")
+
+    btn_left, btn_spacer, btn_right = st.columns([1, 4, 1])
+    with btn_left:
+        search = st.button("Cari Data", type="primary")
+    with btn_right:
+        st.link_button(
+            "Ke Filter Jurusan",
+            "https://magang05.streamlit.app/Filter_Jurusan"
+        )
 
 API_BASE = "https://maganghub.kemnaker.go.id/be/v1/api/list/crud-program-participants"
 headers = {
@@ -317,5 +323,6 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
