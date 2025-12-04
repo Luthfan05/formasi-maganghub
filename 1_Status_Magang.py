@@ -202,6 +202,25 @@ html, body{
 .stSwitch label{
     color:var(--text-main) !important;
 }
+.stButton>button,
+.link-btn{
+    border-radius:999px;
+    background:#ff4b4b;
+    color:#ffffff;
+    border:none;
+    padding:0.45rem 1.1rem;
+    font-size:0.9rem;
+    font-weight:600;
+    text-decoration:none;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+.stToggle label,
+.stToggle span{
+    color: var(--text-main) !important;
+    font-size: 0.95rem;
+    font-weight: 400;
 """
 st.markdown(f"<style>{base_css}</style>", unsafe_allow_html=True)
 
@@ -236,6 +255,10 @@ if st.session_state.dark_mode:
     }
     .metric-value{
         color:#f9fafb;
+    }
+    .stToggle label,
+    .stToggle span{
+        color: var(--text-main) !important;
     }
     :root{
     --bg-main:#0f172a;
@@ -323,10 +346,3 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
-
-
-
-
-
-
-
