@@ -21,7 +21,7 @@ with st.container():
         search = st.button("Cari Data", type="primary")
     with btn_right:
         if st.button("Filter Jurusan"):
-            st.switch_page("Filter_Jurusan")
+            st.switch_page("pages/Filter_Jurusan")
 
 toggle_col, _ = st.columns([1, 4])
 with toggle_col:
@@ -345,6 +345,7 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
 
 
 
