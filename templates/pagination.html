@@ -1,0 +1,18 @@
+<div class="page-nav">
+    {% if current_page <= 1 %} <span class="page-pill page-pill-disabled">‹ Prev</span>
+        {% else %}
+        <a class="page-pill" href="?page={{ current_page-1 }}" target="_self">‹ Prev</a>
+        {% endif %}
+        {% for num in page_numbers %}
+        {% if num == current_page %}
+        <span class="page-pill page-pill-active">{{ num }}</span>
+        {% else %}
+        <a class="page-pill" href="?page={{ num }}" target="_self">{{ num }}</a>
+        {% endif %}
+        {% endfor %}
+        {% if current_page >= total_pages %}
+        <span class="page-pill page-pill-disabled">Next ›</span>
+        {% else %}
+        <a class="page-pill" href="?page={{ current_page+1 }}" target="_self">Next ›</a>
+        {% endif %}
+</div>
