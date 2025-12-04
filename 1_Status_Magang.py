@@ -123,9 +123,6 @@ base_css = """
     color:#111827;
     font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
 }
-.stTextInput>div>div>input{
-    background:#ffffff;
-}
 .result-grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
@@ -181,17 +178,16 @@ base_css = """
     --text-main:#111827;
     --text-input:#111827;
     --border-input:#d1d5db;
+    --placeholder:#9ca3af;
 }
-
-.stApp{
-    background:var(--bg-main);
-    color:var(--text-main);
-}
-
 .stTextInput input{
     background:var(--bg-input) !important;
     color:var(--text-input) !important;
     border:1px solid var(--border-input) !important;
+}
+
+.stTextInput input::placeholder{
+    color:var(--placeholder) !important;
 }
 """
 st.markdown(f"<style>{base_css}</style>", unsafe_allow_html=True)
@@ -310,3 +306,4 @@ if not df.empty:
         st.markdown("</div>", unsafe_allow_html=True)
 
     st.markdown("</div>", unsafe_allow_html=True)
+
