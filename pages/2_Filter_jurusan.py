@@ -7,6 +7,7 @@ import streamlit as st
 from jinja2 import Environment, FileSystemLoader
 
 st.set_page_config(layout="wide")
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = Environment(
@@ -24,6 +25,7 @@ st.markdown(f"<style>{css}</style>", unsafe_allow_html=True)
 API_LIST_URL = "https://maganghub.kemnaker.go.id/be/v1/api/list/vacancies-aktif"
 
 df = pd.read_csv(BASE_DIR / "data" / "posisi.csv")
+
 
 def hitung_prob(row):
     if row["jumlah_kuota"] == 0:
@@ -152,7 +154,7 @@ for _, row in df_page.iterrows():
     html = card_template.render(
         link=link,
         initials=initials,
-        corner_color=corner_class,
+        corner_class=corner_class,
         posisi=row["posisi"],
         nama_perusahaan=row["nama_perusahaan"],
         nama_kabupaten=row["nama_kabupaten"].title(),
@@ -244,5 +246,3 @@ if st.session_state.dark_mode:
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
-
-
