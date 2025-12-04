@@ -22,7 +22,7 @@ Data diperoleh dengan melakukan permintaan HTTP ke endpoint internal yang diguna
 Data diambil dengan melakukan request HTTP ke endpoint internal yang digunakan oleh aplikasi web MagangHub.
 
 Proses ini dilakukan melalui:
-'data/scrap.py'
+`data/scrap.py`
 Hasilnya disimpan dalam bentuk file CSV dan digunakan sebagai sumber data utama aplikasi, sehingga proses visualisasi dan filter dapat berjalan cepat tanpa melakukan permintaan berulang.
 
 ### 3. Filter Lowongan Based on Kriteria (Page 2)
@@ -43,7 +43,7 @@ Untuk menjaga performa:
 - Mekanisme cache digunakan untuk menghindari permintaan berulang dalam waktu singkat
 
 ## Struktur Folder
-formasi-maganghub/
+```formasi-maganghub/
 ├─ data/
 │ ├─ posisi.csv
 │ └─ scrap.py
@@ -57,6 +57,7 @@ formasi-maganghub/
 ├─ 1_Status_Magang.py
 ├─ requirements.txt
 └─ README.md
+```
 
 
 ## Framework dan Library
