@@ -201,7 +201,7 @@ with pag_col:
     )
 
 if "dark_mode" not in st.session_state:
-    st.session_state.dark_mode = False
+    st.session_state.dark_mode = True
 
 with toggle_col:
     st.toggle("Dark mode", key="dark_mode")
@@ -246,3 +246,4 @@ if st.session_state.dark_mode:
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
+
