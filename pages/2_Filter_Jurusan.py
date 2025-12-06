@@ -141,7 +141,7 @@ df_page = enrich_page_with_realtime(df_page)
 cards_html = '<div class="card-grid">'
 
 for _, row in df_page.iterrows():
-    link = f"https://maganghub.kemnaker.go.id/lowongan/view/{row['id_posisi']}"
+    link = f"https://maganghub.kemnaker.go.id/lowongan/view/id_posisi={row['id_posisi']}"
     initials = "".join([w[0] for w in row["posisi"].split()[:2]]).upper()
     prob_pct = float(row["prob_val"]) * 100
     if prob_pct >= 80:
@@ -246,4 +246,5 @@ if st.session_state.dark_mode:
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
+
 
