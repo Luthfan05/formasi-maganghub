@@ -28,10 +28,16 @@ df = pd.read_csv(BASE_DIR / "data" / "posisi.csv")
 
 
 def hitung_prob(row):
-    if row["jumlah_kuota"] == 0:
+    kuota = row["jumlah_kuota"]
+    daftar = row["jumlah_terdaftar"]
+    if kuota <= 0:
         return 0.0
-    p = max(0, 1 - row["jumlah_terdaftar"] / row["jumlah_kuota"])
-    return p
+    if daftar < kuota:
+        return 1.0
+
+    p = kuota / max(daftar, 1)
+    return min(1.0, max(0.0, p))
+
 
 
 @st.cache_data(ttl=60)
@@ -246,5 +252,6 @@ if st.session_state.dark_mode:
     }
     """
     st.markdown(f"<style>{dark_css}</style>", unsafe_allow_html=True)
+
 
 
